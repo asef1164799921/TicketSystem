@@ -3,4 +3,19 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qlsf.mapper.UserMapper">
+    <insert id="addUser" parameterType="com.qlsf.pojo.User">
+        insert into user (username,password,sex,phone,uid,email,birth) values (#{user.username},#{user.password},#{user.sex},#{user.phone},#{user.uid},#{user.email},#{user.birth});
+    </insert>
+    <select id="selectUser" resultType="com.qlsf.pojo.User">
+        select * from user where username=#{username} and password=#{password}
+    </select>
+    <select id="selectAllUser" resultType="com.qlsf.pojo.User">
+        select * from user limit #{pageNo},#{pageSize}
+    </select>
+    <update id="updateUser" parameterType="com.qlsf.pojo.User">
+        update user set username=#{user.username},password=#{user.password},sex=#{user.sex},phone=#{user.phone},uid=#{user.uid},email=#{user.email},birth=#{user.birth} where user_id=#{user.userId}
+    </update>
+    <select id="selectUserByUserName">
+        select * from user where username=#{username}
+    </select>
 </mapper>

@@ -16,24 +16,5 @@
       <typeAliases>
         <package name="com.qlsf.pojo"/>
      </typeAliases>
-    <!--
-     <environments default="development">
-     <environment id="development">
-     <transactionManager type="JDBC"/>
-     <dataSource type="POOLED">
-     <property name="driver" value="${driver}"/>
-     <property name="url" value="${url}"/>
-     <property name="username" value="${username}"/>
-     <property name="password" value="${password}"/>
-     </dataSource>
-     </environment>
-     </environments>
-     <mappers>
-     <mapper resource="EmployeeMapper.xml"/>
-      <mapper resource="DepartmentMapper.xml"/>
-     使用注解方式
-     <mapper class="com.yg.batis.dao.EmployeeMapperAnnotation"></mapper>
-     包下的所有
-     <package name="com.yg.batis.dao"/>
-     </mappers> -->
+
 </configuration>

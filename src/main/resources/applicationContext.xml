@@ -44,7 +44,7 @@
  
  <!--扫描所有的mapper接口，将接口实现自动注入IOC容器  -->
  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
- <property name="basePackage" value="com.yg.dao"></property>
+ <property name="basePackage" value="com.qlsf.mapper"></property>
  </bean>
  
  
@@ -52,6 +52,7 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
 
  	<!-- 开启事务注解@Transactional支持 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
