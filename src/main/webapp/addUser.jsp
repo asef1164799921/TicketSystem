@@ -25,10 +25,8 @@
 			<tr>
 				<td><span style="color:red">*</span>证件类型</td>
 				<td>
-					<select style="width:160px; height:23px" >
+					<select style="width: 173px;height: 21px">
 						<option>身份证</option>
-						<option>护照</option>
-						<option>其他</option>
 					</select>
 				</td>
 				<td><span style="color:red">*</span>证件号码</td>
@@ -39,7 +37,6 @@
 				<td><span style="color:red">*</span>确认密码</td><td><input id="pdc" type="password" name="password2" required="required" onchange="confirm()"></td>
 			</tr>
 			<tr>
-				<%--<td><span style="color:red">*</span>生日</td><td><input type="date" name="birthday" style="width:155px"></td>--%>
 				<td><span style="color:red">*</span>性别</td>
 				<td>
 					<input type="radio" name="sex" value="男" checked="checked">男&nbsp;
@@ -47,6 +44,9 @@
 				</td>
 					<td><span style="color:red">*</span>邮箱</td><td><input type="email" name="email" required="required" pattern="\S+@\S+\.\S+" title="邮箱格式不正确"></td>
 				<%--<td>${msg}</td>--%>
+			</tr>
+			<tr>
+				<td><span style="color:red">*</span>生日</td><td><input type="date" name="birthday" style="width:155px"></td>
 			</tr>
 		</table>
 		<input style="left: 145px" id="treaty" type="checkbox" name="deal" onclick="agree()"><label style="left: 150px">已阅读并同意<a href="#">会员条款和隐私政策</a></label><br>

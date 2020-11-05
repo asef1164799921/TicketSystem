@@ -5,6 +5,7 @@ import com.qlsf.pojo.User;
 import com.qlsf.service.UserService;
 import com.qlsf.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.util.Date;
+import java.sql.Date;
 import java.util.Map;
 
 @Controller
@@ -59,7 +60,7 @@ public class UserController {
 
     //用户注册
     @RequestMapping(value = "addUser",method = RequestMethod.POST)
-    public String addUser(HttpServletRequest req,HttpServletResponse resp,@RequestParam String username, @RequestParam String tel, @RequestParam String userIDCard, @RequestParam String password, @RequestParam String password2, @RequestParam String sex, @RequestParam String email,Map<String,Object> map) throws IOException {
+    public String addUser(HttpServletRequest req, HttpServletResponse resp, @RequestParam String username, @RequestParam String tel, @RequestParam String userIDCard, @RequestParam String password, @RequestParam String password2, @RequestParam String sex, @RequestParam String email, @RequestParam Date birthday, Map<String,Object> map) throws IOException {
         resp.setContentType("text/html;charset=utf-8");
         resp.setCharacterEncoding("utf-8");
         PrintWriter out = resp.getWriter();
@@ -71,6 +72,7 @@ public class UserController {
             user.setUid(userIDCard);
             user.setSex(sex);
             user.setEmail(email);
+            user.setBirth(birthday);
             User user1 = userServiceImpl.selectUserByUserName(username);
             User user2 = userServiceImpl.selectUserByUid(userIDCard);
             User user3 = userServiceImpl.selectUserByPhone(tel);

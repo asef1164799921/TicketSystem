@@ -40,10 +40,10 @@ body{
 }
 div.center{
 	position: absolute;
-	top: 20%;
+	top: 18%;
 	left: 28%;
 	width: 620px;
-	height: 400px;
+	height: 440px;
 	border-top: 2px solid #bcbcbc;
 	border-left: 2px solid #bcbcbc;
 	border-right: 2px solid #bcbcbc;

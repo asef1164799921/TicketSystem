@@ -1,7 +1,9 @@
 package com.qlsf.pojo;
 
 
-import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.sql.Date;
 
 public class User {
 
@@ -12,7 +14,9 @@ public class User {
   private String phone;
   private String uid;
   private String email;
-  private java.util.Date birth;
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+//  @JsonFormat(pattern = "yyyy-MM-dd",timezone="GMT+8")
+  private  java.sql.Date birth;
 
 
   public User() {
@@ -92,11 +96,11 @@ public class User {
   }
 
 
-  public java.util.Date getBirth() {
+  public java.sql.Date getBirth() {
     return birth;
   }
 
-  public void setBirth(java.util.Date birth) {
+  public void setBirth(java.sql.Date birth) {
     this.birth = birth;
   }
 
