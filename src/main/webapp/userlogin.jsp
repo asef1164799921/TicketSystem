@@ -10,9 +10,9 @@
 <head>
     <meta charset="UTF-8">
     <!-- 引入外部css文件 -->
-    <link rel="stylesheet" type="text/css" href="css/userlogin.css"></link>
+    <link rel="stylesheet" type="text/css" href="style/css/userlogin.css"></link>
     <title>登录页面</title>
-    <script src="userlogin.js">
+    <script src="style/js/userlogin.js">
     </script>
 </head>
 
@@ -22,7 +22,7 @@
     <!-- 设置一个中间容器：一般是宽度1200，1000 -->
     <div class="container">
         <div class="topLeft">
-            <img src="img/sky.png">
+            <img src="style/img/sky.png">
         </div>
         <div class="topRight">
             <span><a href="addUser.jsp">立即注册</a></span>|<span><a href="#">需要帮助</a></span>
