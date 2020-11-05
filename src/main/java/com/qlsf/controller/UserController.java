@@ -19,7 +19,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
 import java.util.Map;
 
 @Controller
@@ -29,29 +31,86 @@ public class UserController {
     @Autowired
     private UserServiceImpl userServiceImpl;
 
-    @RequestMapping(value = "userController",method = RequestMethod.POST)
+    //用户登录
+    @RequestMapping(value = "userLogin",method = RequestMethod.POST)
     public String checkLogin(@RequestParam String username, @RequestParam String password, Map<String,Object> map) throws ServletException, IOException {
         /*获取页面输入的数据*/
         System.out.println("username="+username);
         System.out.println("pwd="+password);
-        //创建servlet对象
         User user = userServiceImpl.selectUser(username, password);
         System.out.println(user);
         //去数据库验证
         //模拟数据，admin和123456，登陆成功，否则失败
         if(user !=null){
-            String msg="login success!";
+            String msg="登陆成功!";
             String code = "200";
             map.put("msg",msg);
             map.put("code",code);
-            return "/index.jsp";
+            return "index";
         }else {
             //登陆失败跳转到login.jsp
-            String msg="login fail!";
+            String msg="登陆失败!";
             String code = "500";
             map.put("msg",msg);
             map.put("code",code);
-            return "/login.jsp";
+            return "userlogin";
+        }
+    }
+
+    //用户注册
+    @RequestMapping(value = "addUser",method = RequestMethod.POST)
+    public String addUser(HttpServletRequest req,HttpServletResponse resp,@RequestParam String username, @RequestParam String tel, @RequestParam String userIDCard, @RequestParam String password, @RequestParam String password2, @RequestParam String sex, @RequestParam String email,Map<String,Object> map) throws IOException {
+        resp.setContentType("text/html;charset=utf-8");
+        resp.setCharacterEncoding("utf-8");
+        PrintWriter out = resp.getWriter();
+        if(password.equals(password2)){
+            User user = new User();
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setPhone(tel);
+            user.setUid(userIDCard);
+            user.setSex(sex);
+            user.setEmail(email);
+            User user1 = userServiceImpl.selectUserByUserName(username);
+            User user2 = userServiceImpl.selectUserByUid(userIDCard);
+            User user3 = userServiceImpl.selectUserByPhone(tel);
+            if(user1 != null){
+                out.print("<script>alert('用户名已存在!'); window.location='addUser.jsp' </script>");
+                out.flush();
+                out.close();
+                return "addUser";
+            }
+            if(user2 != null){
+                out.print("<script>alert('证件号码已存在!'); window.location='addUser.jsp' </script>");
+                out.flush();
+                out.close();
+                return "addUser";
+            }
+            if(user3 != null){
+                out.print("<script>alert('电话号码已存在!'); window.location='addUser.jsp' </script>");
+                out.flush();
+                out.close();
+                return "addUser";
+            }
+            int i = userServiceImpl.addUser(user);
+            if(i>0) {
+                String msg = "success!";
+                String code = "200";
+                map.put("msg", msg);
+                map.put("code", code);
+                return "index";
+            }
+            else {
+                out.print("<script>alert('未知错误，请重试！!'); window.location='addUser.jsp' </script>");
+                out.flush();
+                out.close();
+                return "addUser";
+            }
+        }else {
+            out.print("<script>alert('两次输入密码不一致!'); window.location='addUser.jsp' </script>");
+            out.flush();
+            out.close();
+            return "addUser";
         }
     }
 

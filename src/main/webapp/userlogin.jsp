@@ -10,9 +10,9 @@
 <head>
     <meta charset="UTF-8">
     <!-- 引入外部css文件 -->
-    <link rel="stylesheet" type="text/css" href="css/userlogin.css"></link>
+    <link rel="stylesheet" type="text/css" href="style/css/userlogin.css"></link>
     <title>登录页面</title>
-    <script src="userlogin.js">
+    <script src="style/js/userlogin.js">
     </script>
 </head>
 
@@ -22,7 +22,7 @@
     <!-- 设置一个中间容器：一般是宽度1200，1000 -->
     <div class="container">
         <div class="topLeft">
-            <img src="img/sky.png">
+            <img src="style/img/sky.png">
         </div>
         <div class="topRight">
             <span><a href="addUser.jsp">立即注册</a></span>|<span><a href="#">需要帮助</a></span>
@@ -39,18 +39,18 @@
         <div class="login">
             <div class="loginContent">
                 <h3>登录</h3>
-                <form action="#">
+                <form action="userLogin" method="post">
                     <div class="it">
                         <!-- 小图标-->
                         <i></i><!-- 设计规范，icon缩写，默认值0，0-->
                         <!-- 文本框-->
-                        <input type="text" placeholder="用户名或邮箱" class="inputTxt" id="userId" name="userName">
+                        <input type="text" placeholder="用户名或邮箱" class="inputTxt" id="userId" name="username">
                     </div>
                     <div class="it">
                         <!-- 小图标-->
                         <i  class="pwd"></i>
                         <!-- 文本框-->
-                        <input type="password" placeholder="请输入密码" class="inputTxt" id="pwdId" name="pwd">
+                        <input type="password" placeholder="请输入密码" class="inputTxt" id="pwdId" name="password">
                     </div>
                     <div class="mt20">
                         <input type="checkbox" class="topLeft"><span class="topLeft">记住密码</span>

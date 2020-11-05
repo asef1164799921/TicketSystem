@@ -11,7 +11,7 @@ public interface UserService {
 
 
     /*通过username查询用户，判断是否存在该用户*/
-    boolean selectUserByUserName(String username);
+    User selectUserByUserName(String username);
     /*通过username和password查询用户，用于登录验证*/
     User selectUser(String username,String password);
 
@@ -20,4 +20,9 @@ public interface UserService {
 
     /*编辑用户，用于管理员和用户自身编辑信息*/
     int updateUser(User user);
+
+    /*通过身份证号查询用户*/
+    User selectUserByUid(String uid);
+    /*通过电话号查询用户*/
+    User selectUserByPhone(String phone);
 }

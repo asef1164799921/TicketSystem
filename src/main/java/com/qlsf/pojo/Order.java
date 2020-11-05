@@ -1,30 +1,19 @@
 package com.qlsf.pojo;
 
 
-import java.sql.Timestamp;
-
 public class Order {
 
   private String orderId;
-  private long userId;
+  private String uid;
+  private String username;
+  private String sex;
+  private String phone;
   private String airId;
   private java.sql.Timestamp originTime;
   private java.sql.Timestamp destinationTime;
   private double price;
   private String state;
 
-  public Order() {
-  }
-
-  public Order(String orderId, long userId, String airId, Timestamp originTime, Timestamp destinationTime, double price, String state) {
-    this.orderId = orderId;
-    this.userId = userId;
-    this.airId = airId;
-    this.originTime = originTime;
-    this.destinationTime = destinationTime;
-    this.price = price;
-    this.state = state;
-  }
 
   public String getOrderId() {
     return orderId;
@@ -35,12 +24,39 @@ public class Order {
   }
 
 
-  public long getUserId() {
-    return userId;
+  public String getUid() {
+    return uid;
   }
 
-  public void setUserId(long userId) {
-    this.userId = userId;
+  public void setUid(String uid) {
+    this.uid = uid;
+  }
+
+
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
+  public String getSex() {
+    return sex;
+  }
+
+  public void setSex(String sex) {
+    this.sex = sex;
+  }
+
+
+  public String getPhone() {
+    return phone;
+  }
+
+  public void setPhone(String phone) {
+    this.phone = phone;
   }
 
 
@@ -88,16 +104,4 @@ public class Order {
     this.state = state;
   }
 
-  @Override
-  public String toString() {
-    return "Order{" +
-            "orderId='" + orderId + '\'' +
-            ", userId=" + userId +
-            ", airId='" + airId + '\'' +
-            ", originTime=" + originTime +
-            ", destinationTime=" + destinationTime +
-            ", price=" + price +
-            ", state='" + state + '\'' +
-            '}';
-  }
 }

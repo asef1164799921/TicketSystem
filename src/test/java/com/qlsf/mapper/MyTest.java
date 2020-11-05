@@ -41,11 +41,4 @@ public class MyTest {
         System.out.println(i);
     }
 
-    @Test
-    public void test5(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        UserServiceImpl bean = context.getBean(UserServiceImpl.class);
-        boolean liwu = bean.selectUserByUserName("liwu");
-        System.out.println(liwu);
-    }
 }

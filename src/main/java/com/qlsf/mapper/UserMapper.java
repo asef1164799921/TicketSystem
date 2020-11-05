@@ -11,7 +11,7 @@ public interface UserMapper {
 
 
     /*通过username查询用户，判断是否存在该用户*/
-    boolean selectUserByUserName(@Param("username") String username);
+    User selectUserByUserName(@Param("username") String username);
     /*通过username和password查询用户，用于登录验证*/
     User selectUser(@Param("username") String username,@Param("password") String password);
 
@@ -23,4 +23,9 @@ public interface UserMapper {
 
     /*编辑用户，用于管理员和用户自身编辑信息*/
     int updateUser(@Param("user") User user);
+
+    /*通过身份证号查询用户*/
+    User selectUserByUid(@Param("uid") String uid);
+    /*通过电话号查询用户*/
+    User selectUserByPhone(@Param("phone") String phone);
 }

@@ -1,7 +1,7 @@
 package com.qlsf.pojo;
 
 
-import java.sql.Date;
+import java.util.Date;
 
 public class User {
 
@@ -12,7 +12,7 @@ public class User {
   private String phone;
   private String uid;
   private String email;
-  private java.sql.Date birth;
+  private java.util.Date birth;
 
 
   public User() {
@@ -92,11 +92,11 @@ public class User {
   }
 
 
-  public java.sql.Date getBirth() {
+  public java.util.Date getBirth() {
     return birth;
   }
 
-  public void setBirth(java.sql.Date birth) {
+  public void setBirth(java.util.Date birth) {
     this.birth = birth;
   }
 

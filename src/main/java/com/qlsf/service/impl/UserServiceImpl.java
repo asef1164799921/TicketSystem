@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean selectUserByUserName(String username) {
+    public User selectUserByUserName(String username) {
         return userMapper.selectUserByUserName(username);
     }
 
@@ -40,6 +40,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public int updateUser(User user) {
         return userMapper.updateUser(user);
+    }
+
+    @Override
+    public User selectUserByUid(String uid) {
+        return userMapper.selectUserByUid(uid);
+    }
+
+    @Override
+    public User selectUserByPhone(String phone) {
+        return userMapper.selectUserByPhone(phone);
     }
 
 
