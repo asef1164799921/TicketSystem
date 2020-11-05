@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <title>管理员登录</title>
 
-    <link rel="stylesheet" type="text/css" href="css/adminlogin.css">
+    <link rel="stylesheet" type="text/css" href="style/css/adminlogin.css">
 </head>
 <body >
 <div id="login">
