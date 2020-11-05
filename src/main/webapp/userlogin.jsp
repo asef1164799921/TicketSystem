@@ -39,18 +39,18 @@
         <div class="login">
             <div class="loginContent">
                 <h3>登录</h3>
-                <form action="#">
+                <form action="userLogin" method="post">
                     <div class="it">
                         <!-- 小图标-->
                         <i></i><!-- 设计规范，icon缩写，默认值0，0-->
                         <!-- 文本框-->
-                        <input type="text" placeholder="用户名或邮箱" class="inputTxt" id="userId" name="userName">
+                        <input type="text" placeholder="用户名或邮箱" class="inputTxt" id="userId" name="username">
                     </div>
                     <div class="it">
                         <!-- 小图标-->
                         <i  class="pwd"></i>
                         <!-- 文本框-->
-                        <input type="password" placeholder="请输入密码" class="inputTxt" id="pwdId" name="pwd">
+                        <input type="password" placeholder="请输入密码" class="inputTxt" id="pwdId" name="password">
                     </div>
                     <div class="mt20">
                         <input type="checkbox" class="topLeft"><span class="topLeft">记住密码</span>
