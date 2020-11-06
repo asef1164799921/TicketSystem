@@ -3,25 +3,110 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qlsf.mapper.UserMapper">
-    <insert id="addUser" parameterType="com.qlsf.pojo.User">
-        insert into user (username,password,sex,phone,uid,email,birth) values (#{user.username},#{user.password},#{user.sex},#{user.phone},#{user.uid},#{user.email},#{user.birth});
-    </insert>
-    <select id="selectUser" resultType="com.qlsf.pojo.User">
-        select * from user where username=#{username} and password=#{password}
+
+    <sql id="user">user_id,username,password,sex,phone,uid,email,birth</sql>
+    <select id="selectUserByid">
+        select <include refid="user"/> from user where user_id = #{userId}
     </select>
-    <select id="selectAllUser" resultType="com.qlsf.pojo.User">
-        select * from user limit #{pageNo},#{pageSize}
+
+    <select id="selectList" parameterType="com.qlsf.pojo.User"
+            resultType="com.qlsf.pojo.User">
+        select <include refid="user"/> from user
+        <where>
+            <if test="user.username!=null">
+                username
+            </if>
+            <if test="user.password!=null">
+                and password = #{user.password}
+            </if>
+
+            <if test="user.sex!=null">
+                and sex = #{user.sex}
+            </if>
+
+            <if test="user.phone!=null">
+                and phone =#{user.phone}
+            </if>
+            <if test="user.uid!=null">
+                and uid =#{user.uid}
+            </if>
+            <if test="user.email!=null">
+                and email = #{user.email}
+            </if>
+            <if test="user.birth!=null">
+                and birth = #{user.birth}
+            </if>
+            <if test="pageSize!=0">
+                and limit pageNo,PageSize
+            </if>
+        </where>
     </select>
-    <update id="updateUser" parameterType="com.qlsf.pojo.User">
-        update user set username=#{user.username},password=#{user.password},sex=#{user.sex},phone=#{user.phone},uid=#{user.uid},email=#{user.email},birth=#{user.birth} where user_id=#{user.userId}
+
+    <select id="selectListCount" parameterType="com.qlsf.pojo.User">
+        select count(1) from user
+        <where>
+            <if test="username!=null">
+                username
+            </if>
+            <if test="password!=null">
+                and password = #{password}
+            </if>
+
+            <if test="sex!=null">
+                and sex = #{sex}
+            </if>
+
+            <if test="phone!=null">
+                and phone =#{phone}
+            </if>
+            <if test="uid!=null">
+                and uid =#{uid}
+            </if>
+            <if test="email!=null">
+                and email = #{email}
+            </if>
+            <if test="birth!=null">
+                and birth = #{birth}
+            </if>
+        </where>
+    </select>
+
+    <update id="update" parameterType="com.qlsf.pojo.User">
+        update
+        <set>
+            <if test="username!=null">
+                username
+            </if>
+            <if test="password!=null">
+                password = #{password},
+            </if>
+
+            <if test="sex!=null">
+                sex = #{sex},
+            </if>
+
+            <if test="phone!=null">
+                phone =#{phone},
+            </if>
+            <if test="uid!=null">
+                uid =#{uid},
+            </if>
+            <if test="email!=null">
+                email = #{email},
+            </if>
+            <if test="birth!=null">
+                birth = #{birth}
+            </if>
+        </set>
+        where user_id = #{userId}
     </update>
-    <select id="selectUserByUserName" resultType="com.qlsf.pojo.User">
-        select * from user where username=#{username}
-    </select>
-    <select id="selectUserByUid" resultType="com.qlsf.pojo.User">
-        select * from user where uid=#{uid}
-    </select>
-    <select id="selectUserByPhone" resultType="com.qlsf.pojo.User">
-        select * from user where phone=#{phone}
-    </select>
+
+    <insert id="insert" parameterType="com.qlsf.pojo.User">
+        insert into user (<include refid="user"/>)
+        value(#{userid},#{username},#{password},#{sex},#{phone},#{uid},#{email},#{birth})
+    </insert>
+
+    <delete id="delete">
+        delete from user where user_id = #{userId}
+    </delete>
 </mapper>
