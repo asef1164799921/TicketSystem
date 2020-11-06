@@ -1,10 +1,14 @@
 package com.qlsf.mapper;
 
+import com.qlsf.pojo.Order;
 import com.qlsf.pojo.User;
+import com.qlsf.service.impl.AdminServiceImpl;
 import com.qlsf.service.impl.UserServiceImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.List;
 
 public class MyTest {
     @Test
@@ -41,4 +45,23 @@ public class MyTest {
         System.out.println(i);
     }
 
+    @Test
+    public void test5(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AdminServiceImpl bean = context.getBean(AdminServiceImpl.class);
+        List<User> users = bean.selectAllUser();
+        for (User user : users) {
+            System.out.println(user);
+        }
+    }
+
+    @Test
+    public void test6(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AdminServiceImpl bean = context.getBean(AdminServiceImpl.class);
+        List<Order> orders = bean.adminSelectOrder(null, "111111", null);
+        for (Order order : orders) {
+            System.out.println(order);
+        }
+    }
 }

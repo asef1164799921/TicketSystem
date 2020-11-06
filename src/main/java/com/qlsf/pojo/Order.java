@@ -104,4 +104,19 @@ public class Order {
     this.state = state;
   }
 
+  @Override
+  public String toString() {
+    return "Order{" +
+            "orderId='" + orderId + '\'' +
+            ", uid='" + uid + '\'' +
+            ", username='" + username + '\'' +
+            ", sex='" + sex + '\'' +
+            ", phone='" + phone + '\'' +
+            ", airId='" + airId + '\'' +
+            ", originTime=" + originTime +
+            ", destinationTime=" + destinationTime +
+            ", price=" + price +
+            ", state='" + state + '\'' +
+            '}';
+  }
 }

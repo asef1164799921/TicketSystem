@@ -11,10 +11,10 @@ public class Flight {
   private long flightId;
   private String origin;
   private String destination;
-  @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+/*  @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")*/
 //  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
   private java.sql.Timestamp originTime;
-  @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+//  @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 //  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
   private java.sql.Timestamp destinationTime;
   private double price;

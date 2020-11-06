@@ -14,7 +14,7 @@ public class User {
   private String phone;
   private String uid;
   private String email;
-  @DateTimeFormat(pattern = "yyyy-MM-dd")
+/*  @DateTimeFormat(pattern = "yyyy-MM-dd")*/
 //  @JsonFormat(pattern = "yyyy-MM-dd",timezone="GMT+8")
   private  java.sql.Date birth;
 

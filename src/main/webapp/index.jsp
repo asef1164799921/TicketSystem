@@ -107,8 +107,8 @@
     </div>
 
     <div class="rightlogin">
-        <span><button class="logindropbt">登录</button></span>
-        <span><button class="logindropbt">注册</button></span>
+        <span><button class="logindropbt" onclick = "window.location.href = 'userlogin.jsp'">登录</button></span>
+        <span><button class="logindropbt" onclick = "window.location.href = 'addUser.jsp'">注册</button></span>
     </div>
 
 </div>
@@ -126,16 +126,16 @@
             <div id="tabbar1">
                 <input type="button" value="单程">
             </div>
-            <form action="index_allExFlight.do">
+            <form action="selectFlightInformation">
                 <table id="tab_content1" class="tab_content">
                     <tr><td>出发城市</td><td>到达城市</td><td>出发时间</td></tr>
                     <tr>
-                        <td><input id="form1_citySelect1" type="text" name="departCity" required></td>
-                        <td><input id="form1_citySelect2" type="text" name="arriveCity" required></td>
-                        <td><input id="form1_calendar" type="date" name="exFlightDate" required></td>
+                        <td><input id="form1_citySelect1" type="text" name="origin" required></td>
+                        <td><input id="form1_citySelect2" type="text" name="destination" required></td>
+                        <td><input id="form1_calendar" type="date" name="originTime" required></td>
                     </tr>
                 </table>
-                <input id="ordeTicket" type="submit" value="查询机票">
+                <input id="ordeTicket" type="submit" value="查询航班">
             </form>
         </div>
 
@@ -147,13 +147,13 @@
             </div>
 
             <div id="tab2_content_1">
-                <form action="index_allExFlight2.do">
+                <form action="selectFlightInformation">
                     <table id="tab_content2" class="tab_content">
                         <tr><td>出发城市</td><td>到达城市</td><td>出发时间</td></tr>
                         <tr>
-                            <td><input id="form2_citySelect1" type="text" name="departCity" required></td>
-                            <td><input id="form2_citySelect2" type="text" name="arriveCity" required></td>
-                            <td><input id="form2_calendar" type="date" ></td>
+                            <td><input id="form2_citySelect1" type="text" name="origin" required></td>
+                            <td><input id="form2_citySelect2" type="text" name="destination" required></td>
+                            <td><input id="form2_calendar" type="date" name="originTime"></td>
                         </tr>
                     </table>
                     <input class="queryFlight" type="submit" value="查询航班">
@@ -161,7 +161,7 @@
             </div>
 
             <div id="tab2_content_2">
-                <form action="index_allExFlight3.do">
+                <form action="selectFlightInformation">
                     <table  class="tab_content">
                         <tr><td>航班号</td><td>出发时间</td></tr>
                         <tr>

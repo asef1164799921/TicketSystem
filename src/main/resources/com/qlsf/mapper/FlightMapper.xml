@@ -3,4 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qlsf.mapper.FlightMapper">
+    <!--根据出发地到达地出发时间模糊查询-->
+    <select id="selectFlightInformation" resultType="com.qlsf.pojo.Flight">
+        <bind name="originTime" value="'%'+originTime+'%'"/>
+        select * from flight where origin=#{origin} and destination=#{destination} and origin_time like #{originTime}
+    </select>
 </mapper>

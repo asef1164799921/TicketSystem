@@ -14,8 +14,8 @@
 </head>
 <body>
 <%
-    int width = 60;//定义图片的宽度
-    int height = 38;//定义图片的高度
+    int width = 70;//定义图片的宽度
+    int height = 25;//定义图片的高度
     // 创建具有可访问图像数据缓冲区的Image
     BufferedImage buffImg = new BufferedImage(width, height,
             BufferedImage.TYPE_INT_RGB);
@@ -28,7 +28,7 @@
     g.fillRect(0, 0, width, height);
 
     // 创建字体，字体的大小应该根据图片的高度来定
-    Font font = new Font("Times New Roman", Font.PLAIN, 25);
+    Font font = new Font("Times New Roman", Font.PLAIN, 20);
     // 设置字体
     g.setFont(font);
 

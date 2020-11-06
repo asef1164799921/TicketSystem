@@ -46,11 +46,11 @@
                         <!-- 文本框-->
                         <input type="text" placeholder="  用户名或邮箱" class="inputTxt" id="userId" name="username">
                     </div>
-                    <div class="it">
+                    <div style="margin-top: 10px" class="it">
                         <!-- 小图标-->
                         <i  class="pwd"></i>
                         <!-- 文本框-->
-                        <input style="margin-top: 10px" type="password" placeholder="  请输入密码" class="inputTxt" id="pwdId" name="password">
+                        <input type="password" placeholder="  请输入密码" class="inputTxt" id="pwdId" name="password">
                     </div>
                     <div style="margin-top: 13px">
                         <input style="width: 200px;height: 38px" type="text" name="validationCode" id="validationCode" placeholder="  请输入验证码"/>

@@ -3,4 +3,28 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qlsf.mapper.AdminMapper">
+    <select id="selectAllUser" resultType="com.qlsf.pojo.User">
+        select * from user
+    </select>
+    <!--根据出发地到达地出发时间模糊查询-->
+    <select id="selectFlightInformation" parameterType="string" resultType="com.qlsf.pojo.Flight">
+    <bind name="originTime" value="'%'+originTime+'%'"/>
+    select * from flight where origin=#{origin} and destination=#{destination} and origin_time like #{originTime}
+    </select>
+
+    <select id="adminSelectOrder" resultType="com.qlsf.pojo.Order">
+    select * from `order`
+    <where>
+        <if test="uid != null">
+            uid=#{uid}
+        </if>
+        <if test="phone != null">
+            AND phone=#{phone}
+        </if>
+        <if test="orderId != null">
+            AND order_id=#{orderId}
+        </if>
+    </where>
+    </select>
+
 </mapper>

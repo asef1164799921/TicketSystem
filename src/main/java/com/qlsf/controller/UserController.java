@@ -60,22 +60,17 @@ public class UserController {
 
     //用户注册
     @RequestMapping(value = "addUser",method = RequestMethod.POST)
-    public String addUser(HttpServletRequest req, HttpServletResponse resp, @RequestParam String username, @RequestParam String tel, @RequestParam String userIDCard, @RequestParam String password, @RequestParam String password2, @RequestParam String sex, @RequestParam String email, @RequestParam Date birthday, Map<String,Object> map) throws IOException {
+    public String addUser(HttpServletResponse resp,User user, @RequestParam String password2 ,Map<String,Object> map) throws IOException {
         resp.setContentType("text/html;charset=utf-8");
         resp.setCharacterEncoding("utf-8");
+
+        System.out.println(user);
+
         PrintWriter out = resp.getWriter();
-        if(password.equals(password2)){
-            User user = new User();
-            user.setUsername(username);
-            user.setPassword(password);
-            user.setPhone(tel);
-            user.setUid(userIDCard);
-            user.setSex(sex);
-            user.setEmail(email);
-            user.setBirth(birthday);
-            User user1 = userServiceImpl.selectUserByUserName(username);
-            User user2 = userServiceImpl.selectUserByUid(userIDCard);
-            User user3 = userServiceImpl.selectUserByPhone(tel);
+        if(user.getPassword().equals(password2)){
+            User user1 = userServiceImpl.selectUserByUserName(user.getUsername());
+            User user2 = userServiceImpl.selectUserByUid(user.getUid());
+            User user3 = userServiceImpl.selectUserByPhone(user.getPhone());
             if(user1 != null){
                 out.print("<script>alert('用户名已存在!'); window.location='addUser.jsp' </script>");
                 out.flush();

@@ -20,7 +20,7 @@
 		<table style="margin-left: 7px;margin-top: 20px">
 			<tr>
 				<td><span style="color:red">*</span>中文姓名</td><td><input id="username" type="text" name="username" required="required"></td>
-				<td><span style="color:red">*</span>手机号码</td><td><input type="text" name="tel" required="required" pattern="\d{11}" title="手机号码格式不正确"></td>
+				<td><span style="color:red">*</span>手机号码</td><td><input type="text" name="phone" required="required" pattern="\d{11}" title="手机号码格式不正确"></td>
 			</tr>
 			<tr>
 				<td><span style="color:red">*</span>证件类型</td>
@@ -30,7 +30,7 @@
 					</select>
 				</td>
 				<td><span style="color:red">*</span>证件号码</td>
-				<td><input type="text" name="userIDCard" required="required" pattern="\d{15}|(\d{17}(\d|X))" title="证件号码格式不正确"></td>
+				<td><input type="text" name="uid" required="required" pattern="\d{15}|(\d{17}(\d|X))" title="证件号码格式不正确"></td>
 			</tr>
 			<tr>
 				<td><span style="color:red">*</span>密码</td><td><input id="pd" type="password" name="password" required="required" pattern="\w{6,16}" title="密码只能是6-16位数字和英文字母"></td>
@@ -46,7 +46,7 @@
 				<%--<td>${msg}</td>--%>
 			</tr>
 			<tr>
-				<td><span style="color:red">*</span>生日</td><td><input type="date" name="birthday" style="width:155px"></td>
+				<td><span style="color:red">*</span>生日</td><td><input type="date" name="birth" style="width:155px"></td>
 			</tr>
 		</table>
 		<input style="left: 145px" id="treaty" type="checkbox" name="deal" onclick="agree()"><label style="left: 150px">已阅读并同意<a href="#">会员条款和隐私政策</a></label><br>
