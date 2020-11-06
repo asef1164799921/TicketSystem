@@ -1,4 +1,9 @@
 package com.qlsf.service;
 
-public interface UserService {
+import com.qlsf.pojo.User;
+
+import java.util.List;
+public class UserService{
+
 }
+
