@@ -29,7 +29,7 @@
 <div align="center">
     <hr width="100%" color="#008acd" size="3" />
     <h2 style="background: #008acd">订单查询</h2>
-    <form method="post" action="order.jsp">
+    <form method="post" action="adminorder.jsp">
         身份证号码: <input type="text" name="start" size="20" />
         订单编号: <input type="text" name="start" size="20" />
         电话号码：<input type="text" name="start" size="20" />

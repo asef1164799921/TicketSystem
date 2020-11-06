@@ -48,8 +48,8 @@
     <hr width="100%" color="#008acd" size="3" />
     <h2 style="background: #008acd">飞机票查询</h2>
     <br>
-    <form method="post" action="flight.jsp">
-        <a  href="buy.jsp"><input class="login-button" type="button" name="add" value="添加航班"></a>
+    <form method="post" action="adminflight.jsp">
+        <a  href="addflight.jsp"><input class="login-button" type="button" name="add" value="添加航班"></a>
         起始地: <input type="text" name="start" size="20" />
         终止地: <input type="text" name="start" size="20" />
         发车时间：<input type="date" name="sj" size="20" />
