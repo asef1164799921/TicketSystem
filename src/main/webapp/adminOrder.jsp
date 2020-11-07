@@ -28,14 +28,19 @@
 <p class="titletable">&nbsp;&nbsp;您所在的位置：系统管理 &gt;订单管理</p>
 <div align="center">
     <hr width="100%" color="#008acd" size="3" />
-    <h2 style="background: #008acd">用户查询</h2>
-
+    <h2 style="background: #008acd">订单查询</h2>
+    <form method="post" action="adminOrder.jsp">
+        身份证号码: <input type="text" name="start" size="20" />
+        订单编号: <input type="text" name="start" size="20" />
+        电话号码：<input type="text" name="start" size="20" />
+        <input type="submit" name="sub" value="查询">
+    </form>
     <br /><br />
 
     <table   style="border: solid" border="1px" width="80%">
         <tr>
-            <td>用户号</td><td>姓名</td><td>密码</td>
-            <td>性别</td><td>电话</td><td>用户号</td><td>邮箱</td><td>生日</td>
+            <td>订单号</td><td>用户号</td><td>航班号</td>
+            <td>出发时间</td><td>到达时间</td><td>价格</td><td>支付状态</td>
             <td>删除</td><td>更新</td>
         </tr>
 
@@ -47,9 +52,8 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
             <td><a href="#">删除</a></td>
-            <td><a href="userupdate.jsp">更新</a></td>
+            <td><a href="orderUpdate.jsp">更新</a></td>
         </tr>
     </table>
     <br />

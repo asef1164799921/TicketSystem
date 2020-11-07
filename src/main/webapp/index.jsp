@@ -107,7 +107,7 @@
     </div>
 
     <div class="rightlogin">
-        <span><button class="logindropbt" onclick = "window.location.href = 'userlogin.jsp'">登录</button></span>
+        <span><button class="logindropbt" onclick = "window.location.href = 'userLogin.jsp'">登录</button></span>
         <span><button class="logindropbt" onclick = "window.location.href = 'addUser.jsp'">注册</button></span>
     </div>
 

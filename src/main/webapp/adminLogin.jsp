@@ -17,9 +17,9 @@
 <body >
 <div id="login">
     <h1>管理员登录</h1>
-    <form method="post">
-        <input type="text" required="required" placeholder="用户名" name="u"></input>
-        <input type="password" required="required" placeholder="密码" name="p"></input>
+    <form method="post" action="adminLogin">
+        <input type="text" required="required" placeholder="用户名" name="name"></input>
+        <input type="password" required="required" placeholder="密码" name="password"></input>
         <button class="but" type="submit">登录</button>
     </form>
 </div>

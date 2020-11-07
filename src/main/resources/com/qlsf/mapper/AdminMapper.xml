@@ -3,6 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qlsf.mapper.AdminMapper">
+    <!--管理员登录-->
+    <select id="adminLogin" resultType="com.qlsf.pojo.Admin">
+        select * from admin where name=#{name} and password=#{password}
+    </select>
+
     <select id="selectAllUser" resultType="com.qlsf.pojo.User">
         select * from user
     </select>
@@ -25,6 +30,19 @@
             AND order_id=#{orderId}
         </if>
     </where>
+    </select>
+
+    <!--管理员查询用户-->
+    <select id="adminSelectUser" resultType="com.qlsf.pojo.User">
+        select * from user
+        <where>
+            <if test="uid != null">
+                uid=#{uid}
+            </if>
+            <if test="phone != null">
+                and phone=#{phone}
+            </if>
+        </where>
     </select>
 
 </mapper>

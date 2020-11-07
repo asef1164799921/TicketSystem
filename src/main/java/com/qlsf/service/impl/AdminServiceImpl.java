@@ -1,6 +1,7 @@
 package com.qlsf.service.impl;
 
 import com.qlsf.mapper.AdminMapper;
+import com.qlsf.pojo.Admin;
 import com.qlsf.pojo.Order;
 import com.qlsf.pojo.User;
 import com.qlsf.service.AdminService;
@@ -14,8 +15,13 @@ public class AdminServiceImpl implements AdminService {
     private AdminMapper adminMapper;
 
     @Override
-    public List<User> selectAllUser() {
-        return adminMapper.selectAllUser();
+    public Admin adminLogin(String name, String password) {
+        return adminMapper.adminLogin(name,password);
+    }
+
+    @Override
+    public List<User> adminSelectUser(String uid,String phone) {
+        return adminMapper.adminSelectUser(uid,phone);
     }
 
     @Override

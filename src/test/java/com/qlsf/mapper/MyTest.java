@@ -2,6 +2,7 @@ package com.qlsf.mapper;
 
 import com.qlsf.pojo.Order;
 import com.qlsf.pojo.User;
+import com.qlsf.service.AdminService;
 import com.qlsf.service.impl.AdminServiceImpl;
 import com.qlsf.service.impl.UserServiceImpl;
 import org.junit.Test;
@@ -48,8 +49,8 @@ public class MyTest {
     @Test
     public void test5(){
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        AdminServiceImpl bean = context.getBean(AdminServiceImpl.class);
-        List<User> users = bean.selectAllUser();
+        AdminService bean = context.getBean(AdminService.class);
+        List<User> users = bean.adminSelectUser("370123",null);
         for (User user : users) {
             System.out.println(user);
         }

@@ -1,6 +1,7 @@
 package com.qlsf.controller;
 
 import com.qlsf.pojo.Flight;
+import com.qlsf.service.FlightService;
 import com.qlsf.service.impl.FlightServiceImpl;
 import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,16 +22,13 @@ import java.util.Map;
 public class FlightController {
 
     @Autowired
-    private FlightServiceImpl flightServiceImpl;
+    private FlightService flightService;
     //按条件查询航班信息
     @RequestMapping("selectFlightInformation")
     public void selectFlightInformation(HttpServletRequest req, HttpServletResponse resp, @RequestParam String origin, @RequestParam String destination, @RequestParam String originTime, Map<String,Object> map) throws IOException, ServletException {
         resp.setContentType("text/html;charset=utf-8");
         resp.setCharacterEncoding("utf-8");
-        List<Flight> flights = flightServiceImpl.selectFlightInformation(origin, destination, originTime);
-/*        JSONArray jsonArray = JSONArray.fromObject(flights);
-        PrintWriter writer = resp.getWriter();
-        writer.append(jsonArray.toString());*/
+        List<Flight> flights = flightService.selectFlightInformation(origin, destination, originTime);
         req.getSession().setAttribute("flight",flights);
         req.getRequestDispatcher("/userList.jsp").forward(req,resp);
     }

@@ -71,17 +71,17 @@
         	%>
         	<li><span>用户信息管理</span>
 	        	<ul>
-	               <li><a href="adminuser.jsp" target="mainFrame">用户信息管理</a></li>
+	               <li><a href="adminUser.jsp" target="mainFrame">用户信息管理</a></li>
 	        	</ul>
 	        </li>
 	        <li><span>订单信息管理</span>
 	            <ul>
-	               <li><a href="adminorder.jsp" target="mainFrame">订单信息管理</a></li>
+	               <li><a href="adminOrder.jsp" target="mainFrame">订单信息管理</a></li>
 	            </ul>
 	        </li>
 	        <li><span>航班信息管理</span>
 	            <ul>
-	                <li><a href="adminflight.jsp" target="mainFrame">航班信息管理</a></li>
+	                <li><a href="adminFlight.jsp" target="mainFrame">航班信息管理</a></li>
 	            </ul>
 	        </li>
 

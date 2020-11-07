@@ -8,7 +8,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>火车票管理系统</title>
+    <title>航班管理系统</title>
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
@@ -48,8 +48,8 @@
     <hr width="100%" color="#008acd" size="3" />
     <h2 style="background: #008acd">飞机票查询</h2>
     <br>
-    <form method="post" action="adminflight.jsp">
-        <a  href="addflight.jsp"><input class="login-button" type="button" name="add" value="添加航班"></a>
+    <form method="post" action="adminFlight.jsp">
+        <a  href="addFlight.jsp"><input class="login-button" type="button" name="add" value="添加航班"></a>
         起始地: <input type="text" name="start" size="20" />
         终止地: <input type="text" name="start" size="20" />
         发车时间：<input type="date" name="sj" size="20" />
@@ -72,7 +72,7 @@
             <td></td>
             <td></td>
             <td><a href="#">删除</a></td>
-            <td><a href="flightupdate.jsp">更新</a></td>
+            <td><a href="flightUpdate.jsp">更新</a></td>
         </tr>
     </table>
     <br />
