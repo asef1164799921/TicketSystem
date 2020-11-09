@@ -12,7 +12,7 @@
     <script>
         /*编辑按钮的函数*/
         function editUser(userId) {
-            window.location.href="${pageContext.request.contextPath}/EditUserServlet?id="+userId;//url地址传参用？
+            window.location.href="${pageContext.request.contextPath}/EditUser1?userId="+userId;//url地址传参用？
         }
         /*删除按钮的函数*/
         function deleteById(userId) {
@@ -21,7 +21,7 @@
                 window.event.returnValue = false;
 
             } else {
-                window.location.href = "${pageContext.request.contextPath}/DeleteByIdServlet?id=" + userId;
+                window.location.href = "${pageContext.request.contextPath}/deleteUser?userId=" + userId;
             }
 
         }
@@ -108,7 +108,7 @@
                 </td>
             </tr>
         </c:forEach>
-        <c:if test="${users.size()<=0}">
+        <c:if test="${userList.size()<=0}">
             <tr><td colspan="9" style="color: red;text-align: center">没有查询到相关信息<td></tr>
         </c:if>
     </table>

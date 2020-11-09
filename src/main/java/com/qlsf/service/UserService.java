@@ -9,9 +9,12 @@ public interface UserService {
     /*添加用户(用于注册用户)*/
     int addUser(User user);
 
+    //userid 查询
+    User selectUserById(int userId);
 
     /*通过username查询用户，判断是否存在该用户*/
     User selectUserByUserName(String username);
+
     /*通过username和password查询用户，用于登录验证*/
     User selectUser(String username,String password);
 
@@ -23,6 +26,10 @@ public interface UserService {
 
     /*通过身份证号查询用户*/
     User selectUserByUid(String uid);
+
     /*通过电话号查询用户*/
     User selectUserByPhone(String phone);
+
+    //删除用户
+    int deleteUser(int userId);
 }

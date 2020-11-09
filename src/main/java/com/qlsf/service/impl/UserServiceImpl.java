@@ -20,6 +20,13 @@ public class UserServiceImpl implements UserService {
         return userMapper.addUser(user);
     }
 
+    //通过userId查询用户
+    @Override
+    public User selectUserById(int userId) {
+        return userMapper.selectUserById(userId);
+    }
+
+    //通过username查询用户
     @Override
     public User selectUserByUserName(String username) {
         return userMapper.selectUserByUserName(username);
@@ -33,6 +40,7 @@ public class UserServiceImpl implements UserService {
 
     /*分页查询所有用户列表，用于管理员查询所有用户*/
     @Override
+
     public List<User> selectAllUser(int pageNo, int pageSize) {
         return userMapper.selectAllUser(pageNo,pageSize);
     }
@@ -42,15 +50,19 @@ public class UserServiceImpl implements UserService {
         return userMapper.updateUser(user);
     }
 
+    //通过uid查询用户
     @Override
     public User selectUserByUid(String uid) {
         return userMapper.selectUserByUid(uid);
     }
 
+    //通过电话号查询用户
     @Override
     public User selectUserByPhone(String phone) {
         return userMapper.selectUserByPhone(phone);
     }
 
+    @Override
+    public int deleteUser(int userId) { return userMapper.deleteUser(userId); }
 
 }

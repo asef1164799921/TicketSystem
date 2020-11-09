@@ -107,8 +107,15 @@
     </div>
 
     <div class="rightlogin">
-        <span><button class="logindropbt" onclick = "window.location.href = 'userLogin.jsp'">登录</button></span>
-        <span><button class="logindropbt" onclick = "window.location.href = 'addUser.jsp'">注册</button></span>
+        <c:if test="${empty sessionScope.user}">
+            <span><button class="logindropbt" onclick = "window.location.href = 'userLogin.jsp'">登录</button></span>
+            <span><button class="logindropbt" onclick = "window.location.href = 'addUser.jsp'">注册</button></span>
+        </c:if>
+        <c:if test="${not empty sessionScope.user}">
+            <span><a href="indexuser.jsp">${sessionScope.user.username}</a></span>
+            <span><button class="logindropbt" onclick="cancellationBtn()">注销</button></span>
+        </c:if>
+
     </div>
 
 </div>
@@ -182,6 +189,9 @@
 
 <script type="text/javascript" src="style/js/cityselect.js"></script>
 <script type="text/javascript">
+    function cancellationBtn() {
+        window.location.href="remove"
+    }
     function click1(){
         document.getElementById("tab1").style.backgroundColor="#008acd";
         document.getElementById("tab2").style.backgroundColor="white";

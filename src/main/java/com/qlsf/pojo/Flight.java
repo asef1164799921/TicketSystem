@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 
 public class Flight {
 
-  private long flightId;
+  private int flightId;
   private String origin;
   private String destination;
 /*  @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")*/
@@ -23,7 +23,7 @@ public class Flight {
   public Flight() {
   }
 
-  public Flight(long flightId, String origin, String destination, Timestamp originTime, Timestamp destinationTime, double price, String airId) {
+  public Flight(int flightId, String origin, String destination, Timestamp originTime, Timestamp destinationTime, double price, String airId) {
         this.flightId = flightId;
         this.origin = origin;
         this.destination = destination;
@@ -38,7 +38,7 @@ public class Flight {
     return flightId;
   }
 
-  public void setFlightId(long flightId) {
+  public void setFlightId(int flightId) {
     this.flightId = flightId;
   }
 

@@ -3,13 +3,19 @@
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <base href="<%=basePath%>">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <title>My JSP 'Update.jsp' starting page</title>
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>用户更新</title>
 
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
@@ -20,8 +26,37 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     -->
     <style type="text/css">
+        .form-group{
+            padding-left: 350px;
+            box-sizing: border-box;
+        }
+        .form-groups{
+            margin-top: 100px;
+            padding-left: 0px;
+            box-sizing: border-box;
+        }
+        .pop{
+            position: relative;
+        }
+        .tijiao{
+
+        }
         .titletable{
             background: url(image/bgtitle.gif); height:24px; line-height:24px; overflow:hidden}
+        .xingbie{
+            position: absolute;
+            left: 410px;
+            top: 370px;
+        }
+        .xingbies{
+            position: absolute;
+            left: 470px;
+            top: 370px;
+        }
+        .input{
+            display: inline-block;
+            width: 200px;
+        }
 
 
         .login-button { /* 按钮美化 */
@@ -44,18 +79,16 @@
 
 <body>
 <p class="titletable">&nbsp;&nbsp;您所在的位置：系统管理 &gt;用户修改管理</p>
-<div align="center">
+<div align="center" class="pop">
     <hr width="100%" color="#008acd" size="3" />
     <h2 style="background: #008acd">用户信息更新</h2>
-
-
-
+    <%--
     <form action="UpdateServlet" method="get">
         <table  border="0" width="30%">
-            <tr align="left">
+            &lt;%&ndash;<tr align="left">
                 <td>用户号:</td>
                 <td><input type="text" name="upcc" ></td>
-            </tr>
+            </tr>&ndash;%&gt;
             <br>
             <tr align="left">
                 <td>姓&nbsp;&nbsp;名:</td>
@@ -74,32 +107,83 @@
                 <td><input type="text" name="upprice" ></td>
             </tr>
             <tr align="left">
-                <td>u&nbsp;&nbsp;id:</td>
+                <td>身份证号:</td>
                 <td><input type="text" name="uptime" ></td>
             </tr>
             <tr align="left">
-                <td>邮&nbsp;&nbsp;件:</td>
+                <td>邮&nbsp;&nbsp;箱:</td>
                 <td><input type="text" name="upprice" ></td>
             </tr>
             <tr align="left">
                 <td>生&nbsp;&nbsp;日:</td>
                 <td><input type="text" name="upprice" ></td>
             </tr>
-            <tr align="left">
-                <td colspan="2"><input type="hidden" name="id"></td>
-            </tr>
-
         </table>
         <br>
         <p   align="center">
             <input class="login-button" type="submit" name="upsub" value="提交">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input class="login-button" type="reset" name="upreset" value="撤销">
         </p>
+    </form>--%>
+    <span style="color: red" >${msg}</span>
+    <form class="form-horizontal center" action="${pageContext.request.contextPath}/EditUser2" method="post">
+
+        <%--隐藏域--%>
+        <%--<input name="userId" type="hidden" value="${user==null?'':user.id}">--%>
+        <input name="userId" type="hidden" value="${user.userId}" >
+        <div class="form-group">
+            <label class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-2" style="padding-top: 5px">
+                <input readonly  class="form-control" name="username"
+                       style="display: inline-block;width: 150px"
+                       value="${user.username}" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-2">
+                <input required="required" type="password" class="form-control" id="inputPassword"
+                       style="display: inline-block;width: 150px"
+                       name="password" placeholder="密码" value="${user.password}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="col-sm-2 control-label">确认密码</label>
+            <div class="col-sm-2">
+                <input required="required" type="password"  style="display: inline-block;width: 150px" class="form-control" id="inputPassword2" name="password2" placeholder="确认密码" value="${user.password}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputRealName" class="col-sm-2 control-label">证件号码</label>
+            <div class="col-sm-2">
+                <input required="required" type="text"  style="display: inline-block;width: 150px"  class="form-control" id="inputRealName" name="uid" placeholder="证件号码" value="${user.uid}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
+            <div class="col-sm-2">
+                <input required="required"  style="display: inline-block;width: 150px"  type="email" class="form-control" id="inputEmail" name="email" placeholder="邮箱" value="${user.email}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputMobile" class="col-sm-2 control-label">电话</label>
+            <div class="col-sm-2">
+                <input required="required"  style="display: inline-block;width: 150px" type="tel" class="form-control" id="inputMobile" name="phone" placeholder="电话" value="${user.phone}">
+            </div>
+        </div>
+        <div class="form-groups"  >
+            <label class="xingbie">性别</label>
+            <div class="xingbies" style="padding-top: 5px">
+                <input id="man" type="radio" checked="checked" name="sex" value="男" ${user.sex eq "男"?"checked='checked'":""}/>男
+                <input id="woman" type="radio"  name="sex" value="女"${user.sex eq "女"?"checked='checked'":""}/>女
+            </div>
+        </div>
+            <div class="tijiao" >
+                <button type="submit" class="btn btn-default"  style="position: absolute;top: 430px;left: 400px">提交 </button>
+                <button type="reset" class="btn btn-warning" style="position: absolute;top: 430px;left: 475px"> 重置</button>
+            </div>
     </form>
 
-    <hr width="90%" color="#008acd" size="3" />
-    ©2019 YXZ 使用订票系统前必读 意见反馈  <br />
-    齐鲁师范学院信息科学与工程学院所有 0000000000001号
 </div>
 </body>
 </html>

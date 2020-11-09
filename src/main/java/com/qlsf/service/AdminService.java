@@ -18,7 +18,7 @@ public interface AdminService {
 
 
     //航班模块
-    //
+    //管理员动态查询航班
 
     //订单模块
     //管理员查询订单

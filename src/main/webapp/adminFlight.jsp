@@ -1,12 +1,30 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+    <script>
+        /*编辑按钮的函数*/
+        function editFlight(flightId) {
+            window.location.href="${pageContext.request.contextPath}/EditFlight1?flightId="+flightId;//url地址传参用？
+        }
+        /*删除按钮的函数*/
+        function deleteById(flightId) {
+
+            if (!confirm("确认删除吗？")) {
+                window.event.returnValue = false;
+
+            } else {
+                window.location.href = "${pageContext.request.contextPath}/DeleteByIdServlet?id=" + flightId;
+            }
+
+        }
+    </script>
+
     <base href="<%=basePath%>">
     <title>航班管理系统</title>
     <meta http-equiv="pragma" content="no-cache">
@@ -48,32 +66,46 @@
     <hr width="100%" color="#008acd" size="3" />
     <h2 style="background: #008acd">飞机票查询</h2>
     <br>
-    <form method="post" action="adminFlight.jsp">
+    <form action="adminSelectFlight">
         <a  href="addFlight.jsp"><input class="login-button" type="button" name="add" value="添加航班"></a>
-        起始地: <input type="text" name="start" size="20" />
-        终止地: <input type="text" name="start" size="20" />
-        发车时间：<input type="date" name="sj" size="20" />
+        起始地: <input type="text" name="origin" size="20" />
+        终止地: <input type="text" name="destination" size="20" />
+        发车时间：<input type="date" name="originTime" size="20" />
         <input type="submit" name="sub" value="查询">
     </form>
     <br /><br />
 
     <table border="2" width="80%">
         <tr>
-            <td>序号</td><td>起始地</td><td>目的地</td>
-            <td>车次</td><td>时间</td><td>价格</td>
-            <td>删除</td><td>更新</td>
+            <th>No.</th>
+            <th>ID</th>
+            <th>航班号</th>
+            <th>出发地</th>
+            <th>终点</th>
+            <th>起飞时间</th>
+            <th>价格</th>
+            <th>操作</th>
         </tr>
 
-        <tr align="center">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a href="#">删除</a></td>
-            <td><a href="flightUpdate.jsp">更新</a></td>
-        </tr>
+        <c:forEach items="${flight}" var="flight" varStatus="s">
+            <%--一条记录--%>
+            <tr>
+                <td>${s.index+1}</td>
+                <td>${flight.flightId}</td>
+                <td>${flight.airId}</td>
+                <td>${flight.origin}</td>
+                <td>${flight.destination}</td>
+                <td>${flight.originTime}</td>
+                <td>${flight.price}</td>
+                <td>
+                    <button class="btn btn-info" onclick="editFlight(${flight.flightId})">编辑</button>
+                    <button class="btn btn-danger" onclick="deleteById(${flight.flightId})">删除</button>
+                </td>
+            </tr>
+        </c:forEach>
+        <c:if test="${flight.size()<=0}">
+            <tr><td colspan="9" style="color: red;text-align: center">没有查询到相关信息<td></tr>
+        </c:if>
     </table>
     <br />
 

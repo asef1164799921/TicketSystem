@@ -17,4 +17,14 @@ public class FlightServiceImpl implements FlightService {
     public List<Flight> selectFlightInformation(String origin, String destination, String originTime) {
         return flightMapper.selectFlightInformation(origin,destination,originTime);
     }
+
+    @Override
+    public List<Flight> adminSelectFlight(String origin, String destination, String originTime) {
+        return flightMapper.adminSelectFlight(origin,destination,originTime);
+    }
+
+    @Override
+    public Flight selectFlight(int flightId) {
+        return flightMapper.selectFlight(flightId);
+    }
 }

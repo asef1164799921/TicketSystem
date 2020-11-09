@@ -8,4 +8,24 @@
         <bind name="originTime" value="'%'+originTime+'%'"/>
         select * from flight where origin=#{origin} and destination=#{destination} and origin_time like #{originTime}
     </select>
+
+    <!--管理员动态查询航班-->
+    <select id="adminSelectFlight" resultType="com.qlsf.pojo.Flight">
+        select * from flight
+        <where>
+            <if test="origin != null and origin != ''">
+                origin=#{origin}
+            </if>
+            <if test="destination !=null and destination != ''">
+                destination=#{destination}
+            </if>
+            <if test="originTime !=null and originTime != ''">
+                origin_time=#{originTime}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectFlight" resultType="com.qlsf.pojo.Flight">
+        select * from flight where flight_id=#{flightId}
+    </select>
 </mapper>
