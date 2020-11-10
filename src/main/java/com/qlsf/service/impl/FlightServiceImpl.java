@@ -27,4 +27,9 @@ public class FlightServiceImpl implements FlightService {
     public Flight selectFlight(int flightId) {
         return flightMapper.selectFlight(flightId);
     }
+
+    @Override
+    public int editFlight(Flight flight) {
+        return flightMapper.editFlight(flight);
+    }
 }

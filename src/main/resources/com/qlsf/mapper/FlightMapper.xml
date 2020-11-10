@@ -28,4 +28,8 @@
     <select id="selectFlight" resultType="com.qlsf.pojo.Flight">
         select * from flight where flight_id=#{flightId}
     </select>
+
+    <update id="editFlight" parameterType="com.qlsf.pojo.Flight">
+        update flight set origin=#{flight.origin},destination=#{flight.destination},origin_time=#{flight.originTime},destination_time=#{flight.destinationTime},price=#{flight.price},air_id=#{flight.airId} where flight_id=#{flight.flightId}
+    </update>
 </mapper>

@@ -3,4 +3,28 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qlsf.mapper.OrderMapper">
+    <!--管理员查询订单-->
+    <select id="adminSelectOrder" resultType="com.qlsf.pojo.Order">
+        select * from `order`
+        <where>
+            <if test="uid != null and uid !=''">
+                uid=#{uid}
+            </if>
+            <if test="phone != null and phone !=''">
+                AND phone=#{phone}
+            </if>
+            <if test="orderId != null and orderId !=''">
+                AND order_id=#{orderId}
+            </if>
+        </where>
+    </select>
+
+    <select id="adminSelectById" resultType="com.qlsf.pojo.Order">
+        select * from `order` where order_id=#{orderId}
+    </select>
+
+    <!--更新订单-->
+    <update id="updateOrder" parameterType="com.qlsf.pojo.Order">
+        update `order` set uid=#{order.uid},username=#{order.username},origin_time=#{order.originTime},destination_time=#{order.destinationTime},price=#{order.price},state=#{order.state},origin=#{order.origin},destination=#{order.destination} where order_id=#{order.orderId}
+    </update>
 </mapper>

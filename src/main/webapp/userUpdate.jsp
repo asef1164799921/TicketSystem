@@ -82,49 +82,7 @@
 <div align="center" class="pop">
     <hr width="100%" color="#008acd" size="3" />
     <h2 style="background: #008acd">用户信息更新</h2>
-    <%--
-    <form action="UpdateServlet" method="get">
-        <table  border="0" width="30%">
-            &lt;%&ndash;<tr align="left">
-                <td>用户号:</td>
-                <td><input type="text" name="upcc" ></td>
-            </tr>&ndash;%&gt;
-            <br>
-            <tr align="left">
-                <td>姓&nbsp;&nbsp;名:</td>
-                <td><input type="text" name="upstart" ></td>
-            </tr>
-            <tr align="left">
-                <td>密&nbsp;&nbsp;码:</td>
-                <td><input type="text" name="upend" ></td>
-            </tr>
-            <tr align="left">
-                <td>性&nbsp;&nbsp;别:</td>
-                <td><input type="text" name="uptime" ></td>
-            </tr>
-            <tr align="left">
-                <td>电&nbsp;&nbsp;话:</td>
-                <td><input type="text" name="upprice" ></td>
-            </tr>
-            <tr align="left">
-                <td>身份证号:</td>
-                <td><input type="text" name="uptime" ></td>
-            </tr>
-            <tr align="left">
-                <td>邮&nbsp;&nbsp;箱:</td>
-                <td><input type="text" name="upprice" ></td>
-            </tr>
-            <tr align="left">
-                <td>生&nbsp;&nbsp;日:</td>
-                <td><input type="text" name="upprice" ></td>
-            </tr>
-        </table>
-        <br>
-        <p   align="center">
-            <input class="login-button" type="submit" name="upsub" value="提交">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input class="login-button" type="reset" name="upreset" value="撤销">
-        </p>
-    </form>--%>
+
     <span style="color: red" >${msg}</span>
     <form class="form-horizontal center" action="${pageContext.request.contextPath}/EditUser2" method="post">
 

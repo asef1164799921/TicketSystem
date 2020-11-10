@@ -44,7 +44,7 @@
             position: relative;
         }
         .tijiao{
-
+            margin-top: 30px;
         }
         .titletable{
             background: url(image/bgtitle.gif); height:24px; line-height:24px; overflow:hidden}
@@ -134,7 +134,7 @@
     ©2019 YXZ 使用订票系统前必读 意见反馈  <br />
     齐鲁师范学院信息科学与工程学院所有 0000000000001号--%>
     <span style="color: red" >${msg}</span>
-    <form class="form-horizontal center" action="${pageContext.request.contextPath}/EditUser2" method="post">
+    <form class="form-horizontal center" action="${pageContext.request.contextPath}/EditFlight2" method="post">
 
         <%--隐藏域--%>
         <%--<input name="userId" type="hidden" value="${user==null?'':user.id}">--%>
@@ -142,7 +142,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">航班序号</label>
             <div class="col-sm-2" style="padding-top: 5px">
-                <input readonly  class="form-control" name="username"
+                <input readonly  class="form-control" name="flightId"
                        style="display: inline-block;width: 150px"
                        value="${flights.flightId}" >
             </div>
@@ -164,13 +164,13 @@
         <div class="form-group">
             <label for="inputRealName" class="col-sm-2 control-label">起飞时间</label>
             <div class="col-sm-2">
-                <input required="required" type="datetime-local" step="01"  style="display: inline-block;width: 150px"  class="form-control" id="inputRealName" name="originTime" placeholder="起飞时间" value="${flights.originTime}">
+                <input required="required" type="text" step="01"  style="display: inline-block;width: 150px"  class="form-control" id="inputRealName" name="originTime" placeholder="起飞时间" value="${flights.originTime}">
             </div>
         </div>
         <div class="form-group">
             <label for="inputEmail" class="col-sm-2 control-label">到达时间</label>
             <div class="col-sm-2">
-                <input required="required"  style="display: inline-block;width: 150px"  type="datetime-local" step="01" class="form-control" id="inputEmail" name="destinationTime" placeholder="到达时间" value="${flights.destinationTime}">
+                <input required="required"  style="display: inline-block;width: 150px"  type="text" step="01" class="form-control" id="inputEmail" name="destinationTime" placeholder="到达时间" value="${flights.destinationTime}">
             </div>
         </div>
         <div class="form-group">

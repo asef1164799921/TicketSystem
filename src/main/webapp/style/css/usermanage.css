@@ -1,0 +1,74 @@
+
+
+.second-main{
+	width:1024px;
+	margin:0 auto;
+	margin-bottom:25px;
+	margin-top:25px;
+}
+.my-csair{
+	background:#0093d0;
+	color:#FFF;
+	font-size:22px;
+	padding-left:30px;
+	height:45px;
+	line-height:45px;
+	margin-bottom:15px;
+	text-align:left;
+}
+
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background:#fff;
+        }
+        .left-nav{
+            margin-top: 30px;
+            height: 468px;
+            background: #fff;     
+        }
+        .left-nav .right{
+            width: 989px;
+            height: 468px;
+            
+            background-color: #fff;
+            position: relative;
+        }
+        .left-nav .right ul{
+            list-style: none;
+            width: 191px;
+            height: 468px;
+            background-color:#008acd;
+        }
+        .left-nav .right ul li{
+			width:200px;
+            height: 61px;
+            text-align: center;
+            line-height:26px;
+            color:#fff;
+            font-size: 15px;
+            cursor:pointer;
+        }
+        .left-nav .right ul li span:hover{
+            color: red;
+        }
+        .left-nav .right ul li .div2{
+            position:absolute;
+            left: 191px;
+            top: 0px;
+            display:none;
+            width: 798px;
+            height: 468px;
+			color:#666;
+            text-align: center;
+            box-shadow: 1px 1px 2px #ccc;
+        }
+
+table{width:97%; border-collapse:collapse;  margin:5px;}
+table th{ font-size:14px; background:#477A8D; color:#fff;}
+table tbody tr{ background:#f0fafd;}
+table thead th{ color:#477A8D;background:#72d1f1; width:80px;
+height:40px;}

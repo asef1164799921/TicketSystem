@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>航空管理系统</title>
-<link href="style/Index.css" rel="stylesheet" type="text/css" />
+<link href="style/css/adminIndex.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="Script/Index.js"></script>
 	<%--<style>
 	*{
@@ -92,7 +92,7 @@
 	        <div>
 	                <a href="/Common/ChagePwd.jsp" target="mainFrame">修改密码</a>
 	                <a href="/Common/UserInfo.jsp" target="mainFrame">个人信息</a>
-	                <a href="/Common/Logout.jsp">退出系统</a>
+	                <a href="index.jsp">退出系统</a>
 	        </div>
 
 	        <%

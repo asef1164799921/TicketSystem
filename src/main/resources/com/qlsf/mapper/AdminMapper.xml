@@ -17,20 +17,6 @@
     select * from flight where origin=#{origin} and destination=#{destination} and origin_time like #{originTime}
     </select>
 
-    <select id="adminSelectOrder" resultType="com.qlsf.pojo.Order">
-    select * from `order`
-    <where>
-        <if test="uid != null">
-            uid=#{uid}
-        </if>
-        <if test="phone != null">
-            AND phone=#{phone}
-        </if>
-        <if test="orderId != null">
-            AND order_id=#{orderId}
-        </if>
-    </where>
-    </select>
 
     <!--管理员查询用户-->
     <select id="adminSelectUser" resultType="com.qlsf.pojo.User">

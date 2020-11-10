@@ -21,6 +21,5 @@ public interface AdminService {
     //管理员动态查询航班
 
     //订单模块
-    //管理员查询订单
-    List<Order> adminSelectOrder(String uid,String phone,String orderId);
+
 }

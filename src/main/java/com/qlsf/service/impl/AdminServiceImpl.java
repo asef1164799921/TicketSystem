@@ -24,8 +24,4 @@ public class AdminServiceImpl implements AdminService {
         return adminMapper.adminSelectUser(uid,phone);
     }
 
-    @Override
-    public List<Order> adminSelectOrder(String uid, String phone, String orderId) {
-        return adminMapper.adminSelectOrder(uid, phone, orderId);
-    }
 }

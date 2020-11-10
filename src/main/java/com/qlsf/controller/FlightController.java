@@ -29,7 +29,7 @@ public class FlightController {
         resp.setCharacterEncoding("utf-8");
         List<Flight> flights = flightService.selectFlightInformation(origin, destination, originTime);
         req.getSession().setAttribute("flight",flights);
-        return "adminFlight";
+        return "index2";
     }
 
     //管理员模块按条件查询航班
@@ -45,7 +45,7 @@ public class FlightController {
 
     //修改航班信息
     @RequestMapping(value = "EditFlight1",method = RequestMethod.GET)
-    public String EditUser(HttpServletRequest req,HttpServletResponse resp){
+    public String EditFlight(HttpServletRequest req,HttpServletResponse resp){
         String flightId = req.getParameter("flightId");
         System.out.println(flightId);
         //强转
@@ -55,32 +55,26 @@ public class FlightController {
         req.setAttribute("flights",flights);
         return "flightUpdate";
     }
-    /*@RequestMapping(value = "EditUser2",method = RequestMethod.POST)
-    public void EditUser(HttpServletRequest req,
+    @RequestMapping(value = "EditFlight2",method = RequestMethod.POST)
+    public String EditFlight(HttpServletRequest req,
                            HttpServletResponse resp,
                            Flight flight,
-                           Map<String,Object> map,
-                           @RequestParam String password2) throws IOException, ServletException {
+                           Map<String,Object> map) throws IOException, ServletException {
         resp.setContentType("text/html;charset=utf-8");
-        resp.setCharacterEncoding("utf-8");*/
-        /*if(user.getPassword().equals(password2)){
-            int i = userService.updateUser(user);
+        resp.setCharacterEncoding("utf-8");
+        System.out.println(flight);
+            int i = flightService.editFlight(flight);
             if (i>0){
-                User user1 = userService.selectUserById(user.getUserId());
-                req.getSession().setAttribute("user",user1);
+                Flight flight1 = flightService.selectFlight(flight.getFlightId());
+                req.getSession().setAttribute("flights",flight1);
                 map.put("code","200");
                 map.put("msg","更改成功！");
-                return "userUpdate";
+                return "flightUpdate";
             }
             map.put("code","500");
             map.put("msg","未知错误！");
-            return "userUpdate";
+            return "flightUpdate";
         }
-        else {
-            map.put("code","500");
-            map.put("msg","密码不一致！");
-            return "userUpdate";
-        }*/
     }
 
 

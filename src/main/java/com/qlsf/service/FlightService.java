@@ -11,6 +11,9 @@ public interface FlightService {
     //管理员动态查询航班
     List<Flight> adminSelectFlight(String origin,String destination,String originTime);
 
-    //编辑航班
+    //查询航班
     Flight selectFlight(int flightId);
+
+    //更新航班
+    int editFlight(Flight flight);
 }

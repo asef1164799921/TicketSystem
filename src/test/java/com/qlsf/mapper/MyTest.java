@@ -56,7 +56,7 @@ public class MyTest {
         }
     }
 
-    @Test
+   /* @Test
     public void test6(){
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         AdminServiceImpl bean = context.getBean(AdminServiceImpl.class);
@@ -64,5 +64,5 @@ public class MyTest {
         for (Order order : orders) {
             System.out.println(order);
         }
-    }
+    }*/
 }

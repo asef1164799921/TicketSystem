@@ -34,7 +34,7 @@ public class Flight {
   }
 
 
-  public long getFlightId() {
+  public int getFlightId() {
     return flightId;
   }
 

@@ -12,6 +12,9 @@ public interface FlightMapper {
     //管理员页面按条件查询航班
     List<Flight> adminSelectFlight(@Param("origin") String origin, @Param("destination") String destination, @Param("originTime") String originTime);
 
-    //编辑航班
+    //查询航班
     Flight selectFlight(@Param("flightId") int flightId);
+
+    //更新航班
+    int editFlight(@Param("flight") Flight flight);
 }

@@ -16,7 +16,4 @@ public interface AdminMapper {
     List<User> adminSelectUser(@Param("uid") String uid,@Param("phone") String phone);
 
 
-    //通过身份证、电话号、订单号查询订单
-    List<Order> adminSelectOrder(@Param("uid") String uid, @Param("phone") String phone, @Param("orderId") String orderId);
-
 }

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <html lang="en">
@@ -112,7 +113,7 @@
             <span><button class="logindropbt" onclick = "window.location.href = 'addUser.jsp'">注册</button></span>
         </c:if>
         <c:if test="${not empty sessionScope.user}">
-            <span><a href="indexuser.jsp">${sessionScope.user.username}</a></span>
+            <span><a href="userIndex.jsp">${sessionScope.user.username}</a></span>
             <span><button class="logindropbt" onclick="cancellationBtn()">注销</button></span>
         </c:if>
 

@@ -66,7 +66,7 @@ public class UserController {
 
     //用户注册
     @RequestMapping(value = "addUser",method = RequestMethod.POST)
-    public String addUser(HttpServletResponse resp,User user, @RequestParam String password2 ,Map<String,Object> map) throws IOException {
+    public String addUser(HttpServletRequest req,HttpServletResponse resp,User user, @RequestParam String password2 ,Map<String,Object> map) throws IOException {
         resp.setContentType("text/html;charset=utf-8");
         resp.setCharacterEncoding("utf-8");
 
@@ -105,6 +105,7 @@ public class UserController {
             if(i>0) {
                 map.put("msg", "success!");
                 map.put("code", "200");
+                req.getSession().setAttribute("user",user);
                 return "index";
             }
             else {
@@ -127,7 +128,7 @@ public class UserController {
 
     //修改个人信息
     @RequestMapping(value = "EditUser1",method = RequestMethod.GET)
-    public void EditUser(HttpServletRequest req,HttpServletResponse resp){
+    public String EditUser(HttpServletRequest req,HttpServletResponse resp){
         /*获得userid的值来源 JS中?id="+userid"*/
         String userId = req.getParameter("userId");
         System.out.println(userId);
@@ -136,13 +137,7 @@ public class UserController {
         //去数据库查询当前用户的数据
         User user = userService.selectUserById(userIdInt);
         req.setAttribute("user",user);
-        try {
-            req.getRequestDispatcher("/userUpdate.jsp").forward(req, resp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        return "userUpdate";
     }
     @RequestMapping(value = "EditUser2",method = RequestMethod.POST)
     public String EditUser(HttpServletRequest req,

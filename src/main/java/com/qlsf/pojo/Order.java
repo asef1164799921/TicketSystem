@@ -13,6 +13,8 @@ public class Order {
   private java.sql.Timestamp destinationTime;
   private double price;
   private String state;
+  private String origin;
+  private String destination;
 
 
   public String getOrderId() {
@@ -104,19 +106,22 @@ public class Order {
     this.state = state;
   }
 
-  @Override
-  public String toString() {
-    return "Order{" +
-            "orderId='" + orderId + '\'' +
-            ", uid='" + uid + '\'' +
-            ", username='" + username + '\'' +
-            ", sex='" + sex + '\'' +
-            ", phone='" + phone + '\'' +
-            ", airId='" + airId + '\'' +
-            ", originTime=" + originTime +
-            ", destinationTime=" + destinationTime +
-            ", price=" + price +
-            ", state='" + state + '\'' +
-            '}';
+
+  public String getOrigin() {
+    return origin;
   }
+
+  public void setOrigin(String origin) {
+    this.origin = origin;
+  }
+
+
+  public String getDestination() {
+    return destination;
+  }
+
+  public void setDestination(String destination) {
+    this.destination = destination;
+  }
+
 }
